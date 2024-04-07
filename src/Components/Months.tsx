@@ -10,10 +10,10 @@ const monthsStyle: React.CSSProperties = {
 const Months = () => {
   return (
     <div style={monthsStyle}>
-      <Month/>
-      <Month/>
-      <Month/>
-      <Month/>
+      <Month numberMonth={-3}/>
+      <Month numberMonth={-2}/>
+      <Month numberMonth={-1}/>
+      <Month numberMonth={0}/>
     </div>
   )
 }

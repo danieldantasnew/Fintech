@@ -2,17 +2,20 @@ import './App.css';
 import Header from './Components/Header';
 import Sidenav from './Components/Sidenav';
 import Summary from './Components/Summary';
+import { ContextProvider } from './Context/Context';
 
 function App() {
 
   return (
-    <section className='container'>
+    <ContextProvider>
+      <section className='container'>
         <Sidenav/>
-      <main>
-        <Header/>
-        <Summary/>
-      </main>
-    </section>
+        <main>
+          <Header/>
+          <Summary/>
+        </main>
+      </section>
+    </ContextProvider>
   )
 }
 

@@ -8,12 +8,19 @@ const monthStyle: React.CSSProperties = {
   fontWeight: 600,
   textAlign: "center",
   borderRadius: "var(--gap)",
-  border: "transparent"
+  border: "transparent",
+  textTransform: "capitalize"
 }
 
-const Month = () => {
+function monthName(numberMonth: number) {
+  const date = new Date();
+  date.setMonth(date.getMonth() + numberMonth);
+  return new Intl.DateTimeFormat("pt-BR", { month: "long" }).format(date);
+}
+
+const Month = ({numberMonth}: {numberMonth: number}) => {
   return (
-    <button style={monthStyle}>Maio</button>
+    <button style={monthStyle}>{monthName(numberMonth)}</button>
   )
 }
 
