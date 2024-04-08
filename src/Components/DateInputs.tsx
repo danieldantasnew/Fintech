@@ -14,7 +14,7 @@ const DateInputs = () => {
   const {inicio, final, setInicio, setFinal} =  useData();
 
   return (
-  <form style={formStyle}>
+  <form style={formStyle} className='dateInputs'>
     <Input label="Início" value= {inicio} onChange={({target})=> setInicio(target.value)}/>
     <Input label="Final" value= {final} onChange={({target})=> setFinal(target.value)} />
   </form>

@@ -1,6 +1,7 @@
+import React from "react";
+import { useLocation } from "react-router-dom";
 import DateInputs from "./DateInputs";
 import Months from "./Months";
-import Page from "./Page";
 
 const headerStyle: React.CSSProperties = {
   display: "flex",
@@ -14,13 +15,38 @@ const divElementsStyle: React.CSSProperties = {
   gap: "var(--gap)"
 }
 
+const titleStyle: React.CSSProperties = {
+  flex: 1,
+  backgroundColor: "var(--color-3)",
+  color: "var(--color-2)",
+  fontWeight: 600,
+  fontSize: "2rem",
+  borderRadius: "var(--gap)",
+  padding: "var(--gap)"
+}
 
 const Header = () => {
+  const [title, setTitle] = React.useState('');
+  const params = useLocation().pathname;
+
+  React.useEffect(()=> {
+    switch (params) {
+      case '/':
+        setTitle('Resumo')
+        break;
+      case '/vendas':
+        setTitle('Vendas')
+        break;
+      default:
+        break;
+    }
+  }, [params]);
+
   return (
     <header style={headerStyle}>
-      <div style={divElementsStyle}>
+      <div style={divElementsStyle} className="headerClass">
         <DateInputs/>
-        <Page title="Resumo"/>
+        <h2 style={titleStyle}>{title}</h2>
       </div>
       <Months/>
     </header>

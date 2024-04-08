@@ -32,6 +32,11 @@ h3 {
   font-weight: 600;
   margin: 0px;
 }
+main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
 
 ul {
   list-style: none;
@@ -63,9 +68,13 @@ ul {
   display: flex;
   align-items: center;
   gap: var(--gap-s);
-  font-size: 1.125rem;
   margin: .25rem 0;
+}
+
+.sidenav li a {
+  font-size: 1.125rem;
   color: var(--color-1);
+  text-decoration: none;
 }
 
 .sidenav li:hover {
@@ -81,4 +90,118 @@ ul {
 .sidenav li:hover img {
   background-color: var(--color-3);
   transition: .3s;
+}
+
+.box {
+  background-color: var(--color-5);
+  color: var(--color-2);
+  border-radius: var(--gap-s);
+  flex: 1;
+  padding: var(--gap);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.box h2 {
+  color: var(--color-1);
+  font-size: 1.5rem;
+}
+
+.box p {
+  margin-top: var(--gap);
+}
+
+.sales {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: var(--gap);
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.sales a:first-child {
+  font-size: .8rem;
+  font-family: monospace;
+  text-decoration: none;
+  color: currentColor;
+}
+
+.sales div:last-child {
+  justify-self: end;
+}
+
+.sale {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.sale p {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.loading {
+  align-self: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-4);
+  border-radius: 50%;
+  border: 6px solid var(--color-1);
+  border-top: 6px solid transparent;
+  animation: loadingAnimation 1s infinite;
+}
+
+@keyframes loadingAnimation {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 730px) {
+  :root {
+    --gap-s: 0.5rem;
+    --gap: .75rem;
+  }
+  
+  .container {
+    grid-template-columns: 1fr;
+    padding: var(--gap-s);
+  }
+
+  .sidenav ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sidenav li a {
+    font-size: .9rem;
+  }
+
+  .sidenav img {
+    height: 24px;
+    width: 24px;
+  }
+
+  .dateInputs {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .months {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1000px) {
+  .headerClass {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+  }
+
+  .flex {
+    display: flex;
+    flex-direction: column;
+  }
 }

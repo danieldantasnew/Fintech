@@ -2,10 +2,10 @@ import React from 'react';
 import useFetch from '../Hooks/useFetch';
 
 
-type Status = "processando" | "pago" | "falha";
+export type Status = "processando" | "pago" | "falha";
 type Payment = "cartao" | "pix" | "boleto";
 
-interface Sales {
+export interface Sales {
   id: string;
   nome: string;
   preco: number;
@@ -33,13 +33,22 @@ export const useData = ()=> {
   if(!ContextData) throw new Error('Você deve passar o contexto dentro do provider!');
 
   return ContextData;
+}
 
+function getDate(daysAgo: number) {
+  const date = new Date();
+  date.setDate(date.getDate() - daysAgo);
+  const day = date.getDate().toString().padStart(2,'0');
+  const month = (date.getMonth() + 1).toString().padStart(2,'0');
+  
+  return`${date.getFullYear()}-${month }-${day}`
 }
 
 export const ContextProvider = ({children}: React.PropsWithChildren) => {
-  const[inicio, setInicio] = React.useState('');
-  const[final, setFinal] = React.useState('');
+  const[inicio, setInicio] = React.useState(getDate(30));
+  const[final, setFinal] = React.useState(getDate(0));
 
+  
   const buscaDados = useFetch<Sales[]>(`https://data.origamid.dev/vendas/?inicio=${inicio}&final=${final}`);
 
   return (

@@ -30,7 +30,7 @@ function useFetch<T>(url: RequestInfo | URL, options?: RequestInit) {
         if(signal.aborted && erro instanceof Error) setErro(erro.message);
       }
       finally {
-        setLoading(false);
+        if(!signal.aborted) setLoading(false);
       }
     }
 
