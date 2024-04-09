@@ -2,6 +2,7 @@ import React from 'react'
 import { useData } from '../Context/Context'
 import StatsSales from '../Components/StatsSales';
 import Head from '../Components/Head';
+import Graph from '../Components/Graph';
 
 const summaryStye: React.CSSProperties = {
   display: 'flex',
@@ -18,6 +19,7 @@ const Summary = () => {
     <div style={summaryStye}>
       <Head title='Resumo' description='Resumo das Vendas'/>
       <StatsSales data={data}/>
+      <Graph data={data}/>
     </div>
   )
 }

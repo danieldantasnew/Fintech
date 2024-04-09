@@ -49,6 +49,7 @@ ul {
   grid-template-columns: 240px auto;
   gap: var(--gap);
   padding: var(--gap);
+  margin-bottom: var(--gap);
 }
 
 .sidenav {
@@ -191,6 +192,15 @@ ul {
   .months {
     display: flex;
     flex-direction: column;
+  }
+
+  .sales {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sales div {
+    font-size: .8rem;
   }
 }
 
